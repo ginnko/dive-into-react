@@ -24,9 +24,7 @@
     //这个虚拟节点就是this.tree的值
     ```
 
-3. 进入`index.js`中，在这个文件的开头引入了`h`。感觉h的使用不仅是直接调用，在`render`方法中`return`的各种`html`的tag依然能被识别而不报错，这就和react的功能一样。感觉这都是h的效果。
-
-4. 初始化分析
+3. 初始化分析
 
     ```javascript
     this.root = obj[id = addressList] //定义包含节点  
@@ -54,13 +52,13 @@
      -->
     ```
 
-5. 三个方法的写法
+4. 三个方法的写法
 
     1. setState，update定义在最顶端的原型对象上
 
     2. render方法定义在实例对象的类上，实质就是返回一个虚拟节点
 
-6. 更新机制
+5. 更新机制
 
     执行setState函数，
 
@@ -68,6 +66,8 @@
 
     2. 执行update,update中获取render返回的对象，比较后更新
 
-7. 问题
+6. 问题
 
-    不明白为何render返回的jsx能直接转成虚拟节点，感觉是经过了h函数的处理，但是怎么处理的？在update函数中使用console输出也没有反应？
+    不明白为何render返回的jsx能直接转成虚拟节点，~~感觉是经过了h函数的处理~~，但是怎么处理的？在update函数中使用console输出也没有反应？
+
+    **答：**不是h函数处理的，而是`babel`处理的，babel会将`JSX`转化为使用普通函数比如`ReactElement.createElement()`的调用，然后传入相关参数，返回一个js的普通对象。React的官方文档介绍api的部分有专门说这个。
