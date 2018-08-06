@@ -1,2 +1,5 @@
-# dive-into-react
-react深度学习
+### react深度学习
+
+react16之前的版本使用stack协调引擎，16之后的使用fiber引擎。
+
+目前的学习基于15.x，也就是stack版本，因为还没找到相对好的16以上的源码解析的文章。
